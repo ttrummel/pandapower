@@ -1078,21 +1078,21 @@ def draw_collections(collections, figsize=(10, 8), ax=None, plot_colorbars=True,
     Draws matplotlib collections which can be created with the create collection functions.
 
     Input:
-        **collections** (list) - iterable of collection objects, may include tuples of collections
+        **collections** (list) - Iterable of collection objects, may include tuples of collections
 
-    OPTIONAL:
+    Optional:
         **figsize** (tuple, (10,8)) - figsize of the matplotlib figure
 
         **ax** (axis, None) - matplotlib axis object to plot into, new axis is created if None
 
-        **plot_colorbars** (bool, True) - defines whether colorbars should be plotted
+        **plot_colorbars** (bool, True) - Defines whether colorbars should be plotted
 
-        **set_aspect** (bool, True) - defines whether 'equal' and 'datalim' aspects of axis scaling\
+        **set_aspect** (bool, True) - Defines whether 'equal' and 'datalim' aspects of axis scaling\
             should be set.
 
-        **axes_visible** (tuple, (False, False)) - defines visibility of (xaxis, yaxis)
+        **axes_visible** (tuple, (False, False)) - Defines visibility of (xaxis, yaxis)
 
-    OUTPUT:
+    Output:
         **ax** - matplotlib axes
     """
 
@@ -1135,6 +1135,18 @@ def add_single_collection(c, ax, plot_colorbars, copy_collections):
 
 
 def add_collections_to_axes(ax, collections, plot_colorbars=True, copy_collections=True):
+    """
+    Add collections to axes.
+
+    Input:
+        **collections** (list) - Iterable of collection objects, may include tuples of collections
+
+    Optional:
+        **ax** (axis, None) - matplotlib axis object to plot into, new axis is created if None
+
+        **plot_colorbars** (bool, True) - Defines whether colorbars should be plotted
+
+    """
     for i, c in enumerate(collections):
         if Collection in inspect.getmro(c.__class__):
             # if Collection is in one of the base classes of c
